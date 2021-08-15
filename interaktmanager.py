@@ -9,9 +9,13 @@ def callinterakt(name, emailid, code, phone_num, event):
             'Content-Type': 'application/json',
             'Authorization': 'Basic LWdMMjVHYkNLa0FibEF0UmhXQ2MtY1Faa21lOWVjYXprR3dHc0VlQ0szbzo='
         }
+    updatednumber = phone_num
+    if len(phone_num) > 10:
+        startingidx = int(len(phone_num) - 10)
+        updatednumber = phone_num[startingidx:]
     eventname = event
     user_body = {
-        "phoneNumber": phone_num,
+        "phoneNumber": updatednumber,
         "countryCode": code,
         "traits": {
             "name": name,
