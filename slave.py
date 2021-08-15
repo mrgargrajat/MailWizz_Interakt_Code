@@ -65,7 +65,7 @@ def sendmails(rows, listid, sessionname):
         except Exception as e:
             print('error at row ',row, ': ', e)
             sheet.update_cell(row+1, 13, str(e))
-        if entry['WHATSAPP_SENT'] == 'YES':
+        if entry['WHATSAPP_SENT'] == 'YES' or entry['YES, please send me a remainder']:
             try:
                 interaktmanager.callinterakt(entry['Full Name'], entry['Email'], '+91', entry['Phone Number'], sessionname)
                 sheet.update_cell(row+1, 14, "YES")
