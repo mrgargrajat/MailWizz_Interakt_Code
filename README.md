@@ -1,8 +1,8 @@
 # MailWizz_Interakt_Code
 This is the code for automation of mailwizz &amp; interakt whatsapp integration
 
-#WORKING
-#-------
+# WORKING
+# -------
 
 # To remove a session,
 GET request to URL with {sessionname} : 65.2.33.83:8080/REMOVE/{sessionname}
