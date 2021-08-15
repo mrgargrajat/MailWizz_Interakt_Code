@@ -16,9 +16,12 @@ GET request to URL with {sessionname} : 65.2.33.83:8080/REMOVE/{sessionname}
 
 # To add a session to app.py make a POST request as:
 65.2.33.83:8080/ADD/{googlesheet_name}/{sessionname}/{mailwizz_listid}
+
 e.g.
 65.2.33.83:8080/ADD/Hashing18thAugRegistrations/18thAugustHashingMasterclass/jk988q5rhw27f
+
 with JSON holding all information like:
+
 {
     "creds": {
         "type": "service_account",
