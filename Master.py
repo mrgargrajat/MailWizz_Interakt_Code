@@ -26,6 +26,9 @@ def updateall():
             try:
                 arr = info_of[session]
                 myjson, sheetname, listid = arr[0], arr[1], arr[2]
+                # FOR TEST PURPOSE ONLY
+                # if sheetname != '22AugDesignAirBnb':
+                #     continue
                 try:
                     load_sheet(myjson, sheetname)
                 except:
@@ -45,7 +48,7 @@ def updateall():
                     continue
             except:
                 print('error unidentified')
-        time.sleep(60)
+        time.sleep(180)
 
 ############ CALLING MASTER FUNCTION
 
