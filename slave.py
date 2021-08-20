@@ -55,20 +55,26 @@ def sendmails(rows, listid, sessionname):
         print('Mailwizz not working')
     for row in rows:
         entry = total[row-1]
+        Email = entry['Email']
+        FName = entry['Full Name']
+        Phonenum = entry['Phone Number']
+        # FOR TEST PURPOSE
+        # if FName != 'shanu garg':
+        #     continue
         try:
             response = endpointsub.create(list_uid=listid, data={
-                'EMAIL': entry['Email'],
-                'FNAME': entry['Full Name'].split(' ')[0],
-                'LNAME': entry['Full Name'].split(' ')[1]
+                'EMAIL': Email,
+                'FNAME': FName,
+                'LNAME': FName
             })
+            # print(response.content) NOT DOING THIS BECAUSE WE MAKE DUPLICATE ENTRYs TO WHICH, MAILWIZZ SAY ERROR
             sheet.update_cell(row+1, 13, 'YES')
         except Exception as e:
             print('error at row ',row, ': ', e)
             sheet.update_cell(row+1, 13, str(e))
-        if 'YES' in entry['WHATSAPP_SENT'] or 'YES,' in entry['WHATSAPP_SENT']:
+        if 'YES' in entry['WHATSAPP_SENT'] or 'YES,' in entry['WHATSAPP_SENT'] or 'yes,_please_send_me_a_reminder' == entry['WHATSAPP_SENT']:
             try:
-                interaktmanager.callinterakt(entry['Full Name'], entry['Email'], '+91', entry['Phone Number'], sessionname)
-                sheet.update_cell(row+1, 14, "YES")
+                interaktmanager.callinterakt(FName, Email, '+91', Phonenum, sessionname, sheet, row)
             except Exception as e:
                 print("error from interakt: ", e)
                 sheet.update_cell(row+1, 14, e)
