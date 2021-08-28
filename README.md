@@ -39,3 +39,27 @@ with JSON holding all information like:
 
 # AND MAKE SURE GOOGLE SHEET IS SHARED TO client_email as provided in creds.
 e.g. in example above, share google sheet with : interakttest@interaktcheck.iam.gserviceaccount.com
+
+# To list screens:
+screen -r
+
+# To attach to a screen:
+screen -d -r pid.pname
+e.g.:
+screen -d -r 153387.foo
+
+Now, after this we get in that screen.
+If we want to leave that screen just now without affecting the running code,
+Type : 'A' and then 'D' (holding control button)
+
+Ctrl + C to stop a code in screen.
+
+"exit" to kill the screen we are in.
+
+# To start a new screen:
+screen -S new_screen_name
+--- run code ---
+Ctrl + (A and then D) to leave screen and come out from it.
+
+# To run a python file
+python3 file_name.py
